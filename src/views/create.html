@@ -48,26 +48,14 @@
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
     crossorigin="anonymous"></script>
   <script>
-    const toggleSearch = (search, button) => {
-      const searchBar = document.getElementById(search),
-        searchButton = document.getElementById(button)
-
-      searchButton.addEventListener('click', () => {
-        // We add the show-search class, so that the search bar expands
-        searchBar.classList.toggle('show-search')
-      })
-    }
-    toggleSearch('search-bar', 'search-button')
-
     function formSubmit() {
-      event.preventDefault()
-
+      event.preventDefault();
 
       const formData = new FormData();
       formData.append("name", $("#name").val());
       formData.append("description", $("#description").val());
       formData.append("price", $("#price").val());
-      formData.append("image", $("#image").prop('files')[0])
+      formData.append("image", $("#image").prop('files')[0]);
 
       $.ajax({
         method: 'POST',
@@ -79,17 +67,14 @@
         processData: false,
         data: formData,
         success: function (data) {
-         alert("added successfully")
+          alert("added successfully");
         },
         error: function (data) {
-          alert("added failed")
+          alert("added failed");
         }
-      })
-
+      });
     }
-
   </script>
-
 </body>
 
 </html>
